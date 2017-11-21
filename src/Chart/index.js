@@ -14,12 +14,12 @@ class Chart extends Component {
   render() {
 
     return <svg
-      version="1.1"
       baseProfile="full"
-      width={this.width}
       height={this.state.rows.length * this.rowHeight}
+      version="1.1"
+      width={this.width}
       xmlns="http://www.w3.org/2000/svg">
-        {this.mapRows()}
+        {this.renderRows()}
       </svg>;
   }
 
@@ -27,10 +27,10 @@ class Chart extends Component {
   getBounds() {
     const earliestBirth = this.eduists[0].birth;
     const latestDeath = this.eduists.reduce((dod, person) => {
-      if (person.death === -1) return person.death;
+      if (person.death === -1) return (new Date).getFullYear();
       if (person.death > dod) return person.death;
     }, 0);
-    return [earliestBirth, latestDeath]
+    return { min: earliestBirth, max: latestDeath };
   }
 
   getRows() {
@@ -49,14 +49,19 @@ class Chart extends Component {
     return rows;
   }
 
-  mapRows() {
+  renderRows() {
+    const { min, max } = this.getBounds();
+    const scale = this.width / (max - min);
     return this.state.rows.map((rowData, rowNumber) => {
       return <Row
+        eduists={rowData}
         height={this.rowHeight}
-        y={rowNumber * 25}
+        max={max}
+        min={min}
+        scale={scale}
         width={this.width}
-        eduists={rowData} />
-    })
+        y={rowNumber * this.rowHeight} />;
+    });
   }
 }
 

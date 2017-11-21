@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
+import Eduist from '../Eduist';
 
 class Row extends Component {
   render() {
     return (
-      <rect
-        width={this.props.width}
-        height={this.props.height}
-        y={this.props.y}
-        stroke="steelblue"
-        strokeWidth="0.5"
-        fill="transparent">
-      </rect>
+      <g transform={`translate(0, ${this.props.y})`}>
+        {this.renderEduists()}
+      </g>
     );
+  }
+
+  renderEduists() {
+    return this.props.eduists.map((eduist) => {
+      const startPoint = (eduist.birth - this.props.min) * this.props.scale;
+      // const width = (eduist.death - eduist.birth) * this.props.scale;
+      const width = '500'
+      return <Eduist
+        height={this.props.height}
+        width={width}
+        x={startPoint} />;
+    });
   }
 }
 
