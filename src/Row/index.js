@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Eduist from '../Eduist';
+import EduistContainer from '../EduistContainer';
 
 class Row extends Component {
   render() {
@@ -18,7 +18,7 @@ class Row extends Component {
       const startPoint = (eduist.birth - this.props.startYear) * this.props.scale;
       const endPoint = isAlive ? new Date().getFullYear() : eduist.death;
       const width = (endPoint - eduist.birth) * this.props.scale;
-      return <Eduist
+      return <EduistContainer
         key={eduist.name}
         dob={eduist.birth}
         dod={isAlive ? '' : eduist.death}

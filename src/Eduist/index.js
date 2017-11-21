@@ -28,7 +28,7 @@ class Eduist extends Component {
           fontSize={fontSize}
           onClick={this.props.handleClick}
           aria-label="Remove"
-          aria-role="button"
+          role="button"
           x={this.props.width - fontSize * 2}
           y={this.props.height * 2/3}>
           ✕

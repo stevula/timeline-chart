@@ -21,7 +21,7 @@ class Chart extends Component {
       height={rows.length * this.rowHeight}
       version="1.1"
       width={this.width}
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg" >
         {rows}
       </svg>;
   }
