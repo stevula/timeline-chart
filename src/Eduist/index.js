@@ -25,8 +25,11 @@ class Eduist extends Component {
         </text>
 
         <text
+          style={{ cursor: 'pointer' }}
           fontSize={fontSize}
           onClick={this.props.handleClick}
+          aria-label="Remove"
+          aria-role="button"
           x={this.props.width - fontSize * 2}
           y={this.props.height * 2/3}
           >✕</text>
