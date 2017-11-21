@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Row from '../Row';
 
 const Chart = ({ rows, minYear, maxYear }) => {
@@ -25,6 +26,12 @@ const Chart = ({ rows, minYear, maxYear }) => {
       }
     </svg>
   );
+};
+
+Chart.propTypes = {
+  rows: PropTypes.array.isRequired,
+  minYear: PropTypes.number.isRequired,
+  maxYear: PropTypes.number.isRequired,
 };
 
 export default Chart;

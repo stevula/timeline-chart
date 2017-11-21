@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import EduistContainer from '../../containers/EduistContainer';
 
 const Row = ({
@@ -28,6 +29,14 @@ const Row = ({
       }
     </g>
   );
+};
+
+Row.propTypes = {
+  eduists: PropTypes.array.isRequired,
+  height: PropTypes.number.isRequired,
+  scale: PropTypes.number.isRequired,
+  startYear: PropTypes.number.isRequired,
+  translateY: PropTypes.number.isRequired,
 };
 
 export default Row;
