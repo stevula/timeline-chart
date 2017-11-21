@@ -5,12 +5,13 @@ const Chart = ({ rows, minYear, maxYear }) => {
   const width = 1200;
   const rowHeight = 25;
 
-  return <svg
-    baseProfile="full"
-    height={rows.length * rowHeight}
-    version="1.1"
-    width={width}
-    xmlns="http://www.w3.org/2000/svg" >
+  return (
+    <svg
+      baseProfile="full"
+      height={rows.length * rowHeight}
+      version="1.1"
+      width={width}
+      xmlns="http://www.w3.org/2000/svg" >
       {
         rows.map((rowEduists, rowNumber) => {
           return <Row
@@ -22,7 +23,8 @@ const Chart = ({ rows, minYear, maxYear }) => {
             translateY={rowNumber * rowHeight} />;
         })
       }
-    </svg>;
+    </svg>
+  );
 };
 
 export default Chart;

@@ -7,7 +7,7 @@ class Eduist extends Component {
     const fontSize = 10;
 
     return (
-      <g className="Eduist" transform={`translate(${this.props.translateX}, 0)`}>
+      <g transform={`translate(${this.props.translateX}, 0)`}>
         <rect
           fill={blue}
           height={this.props.height}

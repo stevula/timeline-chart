@@ -40,13 +40,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
 const ChartContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(Chart);
 
 export default ChartContainer;
