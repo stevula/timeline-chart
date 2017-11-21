@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 class Eduist extends Component {
   render() {
     const blue = 'rgb(29, 169, 224)';
+    const borderRadius = '3';
     return (
       <g className="Eduist" transform={`translate(${this.props.translateX}, 0)`}>
         <rect
           fill={blue}
           height={this.props.height}
+          rx={borderRadius}
+          ry={borderRadius}
           stroke={blue}
           width={this.props.width} />
 

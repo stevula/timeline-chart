@@ -5,8 +5,10 @@ import Row from '../Row';
 class Chart extends Component {
   constructor(props) {
     super(props);
-    this.eduists = eduists.data;
-    this.state = { rows: this.getRows() };
+    this.state = {
+      eduists: eduists.data,
+      rows: this.getRows(eduists.data)
+    };
     this.rowHeight = 25;
     this.width = 680;
   }
@@ -18,14 +20,14 @@ class Chart extends Component {
       version="1.1"
       width={this.width}
       xmlns="http://www.w3.org/2000/svg">
-        {this.renderRows()}
+        {this.renderRows(this.state.rows)}
       </svg>;
   }
 
-  getBounds() {
+  getBounds(eduists) {
     let min = new Date().getFullYear();
     let max = 0;
-    this.eduists.forEach((person) => {
+    eduists.forEach((person) => {
       if (person.birth < min) {
         min = person.birth;
       }
@@ -38,9 +40,9 @@ class Chart extends Component {
     return { min, max };
   }
 
-  getRows() {
+  getRows(eduists) {
     const rows = [];
-    this.eduists.forEach((eduist) => {
+    eduists.forEach((eduist) => {
       let availableRow = rows.find((row) => {
         const latestRowDeath = row[row.length - 1].death;
         return latestRowDeath !== -1 && latestRowDeath < eduist.birth;
@@ -54,10 +56,10 @@ class Chart extends Component {
     return rows;
   }
 
-  renderRows() {
-    const { min, max } = this.getBounds();
+  renderRows(rowData) {
+    const { min, max } = this.getBounds(this.state.eduists);
     const scale = this.width / (max - min);
-    return this.state.rows.map((rowEduists, rowNumber) => {
+    return rowData.map((rowEduists, rowNumber) => {
       return <Row
         key={rowNumber}
         eduists={rowEduists}

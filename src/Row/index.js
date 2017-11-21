@@ -6,7 +6,7 @@ class Row extends Component {
     return (
       <g
         className="Row"
-        transform={`translate(0, ${this.props.translateY})`} >
+        transform={`translate(0, ${this.props.translateY + 5})`} >
         {this.renderEduists()}
       </g>
     );
@@ -22,7 +22,7 @@ class Row extends Component {
         key={eduist.name}
         dob={eduist.birth}
         dod={isAlive ? '' : eduist.death}
-        height={this.props.height}
+        height={this.props.height * .85}
         name={eduist.name}
         summary={eduist.summary}
         width={width}
