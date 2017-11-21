@@ -13,7 +13,6 @@ class Eduist extends Component {
           height={this.props.height}
           rx={cornerRadius}
           ry={cornerRadius}
-          stroke={blue}
           width={this.props.width} />
 
         <text
@@ -31,8 +30,9 @@ class Eduist extends Component {
           aria-label="Remove"
           aria-role="button"
           x={this.props.width - fontSize * 2}
-          y={this.props.height * 2/3}
-          >✕</text>
+          y={this.props.height * 2/3}>
+          ✕
+        </text>
       </g>
     );
   }

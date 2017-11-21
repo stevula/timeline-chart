@@ -27,24 +27,21 @@ class Chart extends Component {
   }
 
   getBounds(eduists) {
-    let min = new Date().getFullYear();
-    let max = 0;
-    eduists.forEach((person) => {
-      if (person.birth < min) {
-        min = person.birth;
-      }
-      if (person.death === -1) {
+    const defaultBounds = { min: new Date().getFullYear(), max: 0 };
+    return eduists.reduce((bounds, eduist) => {
+      const min = eduist.birth < bounds.min ? eduist.birth : bounds.min;
+      let max = bounds.max;
+      if (eduist.death === -1) {
         max = new Date().getFullYear();
-      } else if (person.death > max) {
-        max = person.death;
+      } else if (eduist.death > max) {
+        max = eduist.death;
       }
-    });
-    return { min, max };
+      return { min, max };
+    }, defaultBounds);
   }
 
   getRows(eduists) {
-    const rows = [];
-    eduists.forEach((eduist) => {
+    return eduists.reduce((rows, eduist) => {
       let availableRow = rows.find((row) => {
         const latestRowDeath = row[row.length - 1].death;
         return latestRowDeath !== -1 && latestRowDeath < eduist.birth;
@@ -54,8 +51,8 @@ class Chart extends Component {
         rows.push(availableRow);
       }
       availableRow.push(eduist);
-    });
-    return rows;
+      return rows;
+    }, []);
   }
 
   renderRows(eduists) {
