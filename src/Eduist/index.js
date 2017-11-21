@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 class Eduist extends Component {
   render() {
+    const color = 'steelblue';
     return (
-      <g transform={`translate(${this.props.x}, 0)`}>
+      <g className="Eduist" transform={`translate(${this.props.x}, 0)`}>
         <rect
-          fill="steelblue"
+          fill={color}
           height={this.props.height}
-          stroke="steelblue"
+          stroke={color}
           width={this.props.width} />
 
-        <text y="20" fill="white" fontSize="10">
+        <text y="15" fill="white" fontSize="10">
           {`${this.props.name}: ${this.props.dob} — ${this.props.dod} `}
         </text>
       </g>

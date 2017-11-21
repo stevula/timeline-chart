@@ -8,11 +8,10 @@ class Chart extends Component {
     this.eduists = eduists.data.sort((a, b) => a.birth - b.birth);
     this.state = { rows: this.getRows() };
     this.rowHeight = 25;
-    this.width = 1000;
+    this.width = 800;
   }
 
   render() {
-
     return <svg
       baseProfile="full"
       height={this.state.rows.length * this.rowHeight}
@@ -23,14 +22,14 @@ class Chart extends Component {
       </svg>;
   }
 
-  // this can be optimized but benefit would be trivial for n <= 50
   getBounds() {
-    const earliestBirth = this.eduists[0].birth;
-    const latestDeath = this.eduists.reduce((dod, person) => {
-      if (person.death === -1) return (new Date).getFullYear();
+    const min = this.eduists[0].birth;
+    const max = this.eduists.reduce((dod, person) => {
+      if (person.death === -1) return new Date().getFullYear();
       if (person.death > dod) return person.death;
+      return dod;
     }, 0);
-    return { min: earliestBirth, max: latestDeath };
+    return { min, max };
   }
 
   getRows() {
@@ -52,14 +51,13 @@ class Chart extends Component {
   renderRows() {
     const { min, max } = this.getBounds();
     const scale = this.width / (max - min);
-    return this.state.rows.map((rowData, rowNumber) => {
+    return this.state.rows.map((rowEduists, rowNumber) => {
       return <Row
-        eduists={rowData}
+        key={rowNumber}
+        eduists={rowEduists}
         height={this.rowHeight}
-        max={max}
-        min={min}
         scale={scale}
-        width={this.width}
+        startYear={min}
         y={rowNumber * this.rowHeight} />;
     });
   }
