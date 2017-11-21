@@ -24,6 +24,7 @@ class Row extends Component {
         dod={isAlive ? '' : eduist.death}
         height={this.props.height * .85}
         name={eduist.name}
+        handleClick={() => this.props.removeEduist(eduist.name)}
         summary={eduist.summary}
         width={width}
         translateX={startPoint} />;

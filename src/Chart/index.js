@@ -7,20 +7,22 @@ class Chart extends Component {
     super(props);
     this.state = {
       eduists: eduists.data,
-      rows: this.getRows(eduists.data)
     };
     this.rowHeight = 25;
-    this.width = 680;
+    this.width = 1200;
+    this.removeEduist = this.removeEduist.bind(this);
   }
 
   render() {
+    const rows = this.renderRows(this.state.eduists);
+
     return <svg
       baseProfile="full"
-      height={this.state.rows.length * this.rowHeight}
+      height={rows.length * this.rowHeight}
       version="1.1"
       width={this.width}
       xmlns="http://www.w3.org/2000/svg">
-        {this.renderRows(this.state.rows)}
+        {rows}
       </svg>;
   }
 
@@ -56,18 +58,26 @@ class Chart extends Component {
     return rows;
   }
 
-  renderRows(rowData) {
-    const { min, max } = this.getBounds(this.state.eduists);
+  renderRows(eduists) {
+    const rowData = this.getRows(eduists)
+    const { min, max } = this.getBounds(eduists);
     const scale = this.width / (max - min);
     return rowData.map((rowEduists, rowNumber) => {
       return <Row
         key={rowNumber}
         eduists={rowEduists}
         height={this.rowHeight}
+        removeEduist={this.removeEduist}
         scale={scale}
         startYear={min}
         translateY={rowNumber * this.rowHeight} />;
     });
+  }
+
+  removeEduist(toDelete) {
+    this.setState(prevState => ({
+      eduists: prevState.eduists.filter(e => e.name !== toDelete)
+    }));
   }
 }
 
