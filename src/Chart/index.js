@@ -5,7 +5,7 @@ import Row from '../Row';
 class Chart extends Component {
   constructor(props) {
     super(props);
-    this.eduists = eduists.data.sort((a, b) => a.birth - b.birth);
+    this.eduists = eduists.data;
     this.state = { rows: this.getRows() };
     this.rowHeight = 25;
     this.width = 680;
@@ -23,12 +23,18 @@ class Chart extends Component {
   }
 
   getBounds() {
-    const min = this.eduists[0].birth;
-    const max = this.eduists.reduce((dod, person) => {
-      if (person.death === -1) return new Date().getFullYear();
-      if (person.death > dod) return person.death;
-      return dod;
-    }, 0);
+    let min = new Date().getFullYear();
+    let max = 0;
+    this.eduists.forEach((person) => {
+      if (person.birth < min) {
+        min = person.birth;
+      }
+      if (person.death === -1) {
+        max = new Date().getFullYear();
+      } else if (person.death > max) {
+        max = person.death;
+      }
+    });
     return { min, max };
   }
 
