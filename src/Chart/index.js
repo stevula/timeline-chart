@@ -8,7 +8,7 @@ class Chart extends Component {
     this.eduists = eduists.data.sort((a, b) => a.birth - b.birth);
     this.state = { rows: this.getRows() };
     this.rowHeight = 25;
-    this.width = 800;
+    this.width = 680;
   }
 
   render() {
@@ -58,7 +58,7 @@ class Chart extends Component {
         height={this.rowHeight}
         scale={scale}
         startYear={min}
-        y={rowNumber * this.rowHeight} />;
+        translateY={rowNumber * this.rowHeight} />;
     });
   }
 }
