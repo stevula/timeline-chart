@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import eduists from '../data/eduists.json';
+import eduists from '../../data/eduists.json';
 import Row from '../Row';
 
 class Chart extends Component {

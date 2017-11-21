@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EduistContainer from '../EduistContainer';
+import EduistContainer from '../../containers/EduistContainer';
 
 class Row extends Component {
   render() {

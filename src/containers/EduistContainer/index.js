@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Eduist from '../Eduist';
+import Eduist from '../../components/Eduist';
 
 class EduistContainer extends Component {
   render() {
@@ -14,7 +14,7 @@ class EduistContainer extends Component {
   }
 
   renderSummary() {
-    this.props.summary
+    // this.props.summary
   }
 }
 
