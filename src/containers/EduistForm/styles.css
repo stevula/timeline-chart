@@ -1,15 +1,52 @@
-.EduistForm form {
-  border-radius: 3px;
-  display: flex;
-  text-align: center;
+.EduistForm button {
+  background-color: transparent;
+  color: black;
 }
 
-.EduistForm form,
+.EduistForm button:hover {
+  cursor: pointer;
+}
+
+.EduistForm div {
+  min-width: 10%;
+}
+
+.EduistForm .form-container {
+  background-color: rgb(29, 169, 224);
+  border-radius: 3px;
+  display: flex;
+  height: 2em;
+}
+
+.EduistForm .form-container,
+.EduistForm button:active,
+.EduistForm button:focus,
+.EduistForm button:hover,
 .EduistForm input,
 .EduistForm textarea {
-  background-color: rgb(29, 169, 224);
   color: white;
+}
+
+.EduistForm .form-container,
+.EduistForm input,
+.EduistForm textarea,
+.EduistForm button {
   font-size: 10px;
+}
+
+.EduistForm button,
+.EduistForm input,
+.EduistForm textarea {
+  background-color: transparent;
+  border: 0;
+  height: 1em;
+}
+
+.EduistForm form {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .EduistForm form,
@@ -17,31 +54,17 @@
   text-align: center;
 }
 
-.EduistForm .left,
-.EduistForm .right {
-  align-self: center;
-  display: inline-block;
-  width: 50%;
-}
-
-.EduistForm .left input {
-  width: 90%;
-}
-
 .EduistForm textarea {
   text-align: left;
 }
 
-.EduistForm input,
-.EduistForm textarea {
-  border: 0;
-  color: white;
-}
-
-.EduistForm :focus {
+.EduistForm input:focus,
+.EduistForm textarea:focus {
   outline: 0;
 }
 
 .EduistForm ::placeholder {
   color: white;
+  opacity: .85;
+  text-align: center;
 }
