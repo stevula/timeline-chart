@@ -11,8 +11,8 @@ const areRequiredInputsBlank = (inputs) => {
   });
 };
 
-const areInputsValid = (inputs) => {
+const validateInputs = (inputs) => {
   return isBirthBeforeDeath(inputs) && !areRequiredInputsBlank(inputs);
 };
 
-export default areInputsValid;
+export default validateInputs;

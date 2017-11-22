@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import { addEduist, closeEduistForm } from '../../actions';
-import areInputsValid from './validation-helpers';
+import validateInputs from './validate-inputs';
 
 let EduistForm = ({ dispatch }) => {
   const inputs = {
@@ -41,7 +41,7 @@ let EduistForm = ({ dispatch }) => {
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (!areInputsValid(inputs)) return;
+            if (!validateInputs(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
             dispatch(closeEduistForm());
             clearInputValues();
