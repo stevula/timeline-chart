@@ -1,7 +1,7 @@
 export const ADD_EDUIST = 'ADD_EDUIST';
 export const REMOVE_EDUIST = 'REMOVE_EDUIST';
-
-export const TOGGLE_MODAL_OPEN = 'TOGGLE_MODAL_OPEN';
+export const TOGGLE_SUMMARY_BUBBLE = 'TOGGLE_SUMMARY_BUBBLE';
+export const TOGGLE_MODAL_FORM = 'TOGGLE_MODAL_FORM';
 
 export const addEduist = ({ name, birth, death, summary }) => {
   return {
@@ -20,6 +20,10 @@ export const removeEduist = (name) => {
   }
 };
 
-export const toggleModalOpen = () => {
-  return { type: TOGGLE_MODAL_OPEN };
+export const toggleModalForm = () => {
+  return { type: TOGGLE_MODAL_FORM };
+}
+
+export const toggleSummary = () => {
+  return { type: TOGGLE_SUMMARY_BUBBLE };
 }

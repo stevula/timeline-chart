@@ -1,17 +1,17 @@
-.AddEduistModal button {
+.ModalForm button {
   background-color: transparent;
   color: black;
 }
 
-.AddEduistModal button:hover {
+.ModalForm button:hover {
   cursor: pointer;
 }
 
-.AddEduistModal div {
+.ModalForm div {
   min-width: 10%;
 }
 
-.AddEduistModal .form-container {
+.ModalForm .form-container {
   align-items: center;
   background-color: rgb(29, 169, 224);
   border-radius: 3px;
@@ -24,32 +24,32 @@
   width: 50em;
 }
 
-.AddEduistModal .form-container,
-.AddEduistModal button:active,
-.AddEduistModal button:focus,
-.AddEduistModal button:hover,
-.AddEduistModal input,
-.AddEduistModal textarea {
+.ModalForm .form-container,
+.ModalForm button:active,
+.ModalForm button:focus,
+.ModalForm button:hover,
+.ModalForm input,
+.ModalForm textarea {
   color: white;
 }
 
-.AddEduistModal .form-container,
-.AddEduistModal input,
-.AddEduistModal textarea,
-.AddEduistModal button {
+.ModalForm .form-container,
+.ModalForm input,
+.ModalForm textarea,
+.ModalForm button {
   font-size: 10px;
 }
 
-.AddEduistModal button,
-.AddEduistModal input,
-.AddEduistModal textarea {
+.ModalForm button,
+.ModalForm input,
+.ModalForm textarea {
   background-color: transparent;
   border: 0;
   height: 1em;
   min-width: 10%;
 }
 
-.AddEduistModal form {
+.ModalForm form {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -57,21 +57,21 @@
   width: 100%;
 }
 
-.AddEduistModal form,
-.AddEduistModal input {
+.ModalForm form,
+.ModalForm input {
   text-align: center;
 }
 
-.AddEduistModal textarea {
+.ModalForm textarea {
   text-align: left;
 }
 
-.AddEduistModal input:focus,
-.AddEduistModal textarea:focus {
+.ModalForm input:focus,
+.ModalForm textarea:focus {
   outline: 0;
 }
 
-.AddEduistModal ::placeholder {
+.ModalForm ::placeholder {
   color: white;
   opacity: .85;
   text-align: center;

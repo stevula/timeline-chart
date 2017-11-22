@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Row from '../Row';
-import AddEduistModal from '../../containers/AddEduistModal';
+import ModalForm from '../../containers/ModalForm';
 
-const Chart = ({ rows, minYear, maxYear, onClick, isModalOpen }) => {
+const Chart = ({ rows, minYear, maxYear, onClick, isFormModalOpen }) => {
   const width = 1200;
   const rowHeight = 25;
 
@@ -16,7 +16,7 @@ const Chart = ({ rows, minYear, maxYear, onClick, isModalOpen }) => {
       width={width}
       xmlns="http://www.w3.org/2000/svg" >
 
-      <AddEduistModal isOpen={isModalOpen} />
+      <ModalForm isOpen={isFormModalOpen} />
 
       {
         rows.map((rowEduists, rowNumber) => {
@@ -34,7 +34,7 @@ const Chart = ({ rows, minYear, maxYear, onClick, isModalOpen }) => {
 };
 
 Chart.propTypes = {
-  isModalOpen: PropTypes.bool.isRequired,
+  isFormModalOpen: PropTypes.bool.isRequired,
   maxYear: PropTypes.number.isRequired,
   minYear: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,

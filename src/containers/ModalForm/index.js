@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
-import { addEduist, toggleModalOpen } from '../../actions';
+import { addEduist, toggleModalForm } from '../../actions';
 import validateInputs from './validate-inputs';
 
-let AddEduistModal = ({ dispatch, isOpen }) => {
+let ModalForm = ({ dispatch, isOpen }) => {
   const inputs = {
     /**
     name: element,
@@ -32,7 +32,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} className="AddEduistModal">
+    <Modal isOpen={isOpen} className="ModalForm">
       <div
         className="form-container"
         onClick={e => e.stopPropagation() /* prevent svg click event */}>
@@ -42,7 +42,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
             e.stopPropagation();
             if (!validateInputs(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
-            dispatch(toggleModalOpen());
+            dispatch(toggleModalForm());
             clearInputValues();
           }}>
 
@@ -88,7 +88,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
           e.preventDefault();
           e.stopPropagation();
           clearInputValues();
-          dispatch(toggleModalOpen());
+          dispatch(toggleModalForm());
         }}>
         ✕
         </button>
@@ -97,6 +97,6 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
   );
 };
 
-AddEduistModal = connect()(AddEduistModal);
+ModalForm = connect()(ModalForm);
 
-export default AddEduistModal;
+export default ModalForm;

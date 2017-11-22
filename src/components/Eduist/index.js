@@ -1,11 +1,13 @@
 import React from 'react';
 import './styles.css';
 import PropTypes from 'prop-types';
+import Summary from '../../components/Summary';
 
 const Eduist = ({
   birth,
   death,
   height,
+  isSummaryOpen,
   name,
   onClickRemove,
   summary,
@@ -50,6 +52,8 @@ const Eduist = ({
         y={height * 2/3}>
         ✕
       </text>
+
+      <Summary isOpen={isSummaryOpen} />
     </g>
   );
 };
@@ -58,6 +62,7 @@ Eduist.propTypes = {
   birth: PropTypes.number.isRequired,
   death: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
+  isSummaryOpen: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   onClickRemove: PropTypes.func.isRequired,
   summary: PropTypes.string.isRequired,
