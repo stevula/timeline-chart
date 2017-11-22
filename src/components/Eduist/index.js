@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 import PropTypes from 'prop-types';
 
 const Eduist = ({
@@ -19,7 +20,7 @@ const Eduist = ({
   const timelineText = `${name}: ${birth} — ${endYear}`;
 
   return (
-    <g transform={`translate(${translateX}, 0)`} >
+    <g className="Eduist" transform={`translate(${translateX}, 0)`} >
       <rect
         fill={blue}
         height={height}

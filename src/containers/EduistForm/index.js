@@ -1,7 +1,9 @@
 import React from 'react';
+import './styles.css';
 import { connect } from 'react-redux';
 import { addEduist, closeEduistForm } from '../../actions';
 
+// TODO validate death year is greater than birth year
 let EduistForm = ({ dispatch }) => {
   const inputs = {
     // name: undefined,
@@ -31,8 +33,10 @@ let EduistForm = ({ dispatch }) => {
 
   return (
     <foreignObject
+      className="EduistForm"
       height="50"
-      width="100">
+      width="300"
+      y="25" >
       <form
         height="50"
         onSubmit={(e) => {
@@ -45,28 +49,45 @@ let EduistForm = ({ dispatch }) => {
         width="100"
         xmlns="http://www.w3.org/1999/xhtml" >
 
-        <input
-          minLength="1"
-          placeholder="name"
-          ref={mapRef('name')}
-          type="text" />
-        <input
-          max={currentYear}
-          min="0"
-          placeholder="birth year"
-          ref={mapRef('birth')}
-          type="number" />
-        <input
-          max={currentYear}
-          min="-1"
-          placeholder="death year"
-          ref={mapRef('death')}
-          type="number" />
-        <input
+        <div className="left">
+          <input
+            aria-label="name"
+            minLength="1"
+            name="eduist_name"
+            placeholder="name"
+            ref={mapRef('name')}
+            required
+            type="text" />
+          :
+        </div>
+        <div className="right">
+          <input
+            aria-label="year of birth"
+            max={currentYear}
+            min="0"
+            name="eduist_birthyear"
+            placeholder="birth"
+            ref={mapRef('birth')}
+            required
+            type="number" />
+          —
+          <input
+            aria-label="year of death"
+            max={currentYear}
+            min="-1"
+            name="eduist_deathyear"
+            placeholder="death"
+            ref={mapRef('death')}
+            type="number" />
+        </div>
+
+        <textarea
+          aria-label="summary"
           minLength="8"
+          name="eduist_summary"
           placeholder="summary"
           ref={mapRef('summary')}
-          type="textarea" />
+          required />
 
         <button type="submit">Add</button>
       </form>
