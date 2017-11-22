@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
-import { addEduist, toggleModalForm } from '../../actions';
+import { addEduist, toggleFormModal } from '../../actions';
 import validateInputs from './validate-inputs';
 
 let ModalForm = ({ dispatch, isOpen }) => {
@@ -42,7 +42,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
             e.stopPropagation();
             if (!validateInputs(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
-            dispatch(toggleModalForm());
+            dispatch(toggleFormModal());
             clearInputValues();
           }}>
 
@@ -88,7 +88,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
           e.preventDefault();
           e.stopPropagation();
           clearInputValues();
-          dispatch(toggleModalForm());
+          dispatch(toggleFormModal());
         }}>
         ✕
         </button>
