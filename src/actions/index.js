@@ -1,7 +1,7 @@
 export const ADD_EDUIST = 'ADD_EDUIST';
 export const REMOVE_EDUIST = 'REMOVE_EDUIST';
-export const OPEN_EDUIST_FORM = 'OPEN_EDUIST_FORM';
-export const CLOSE_EDUIST_FORM = 'CLOSE_EDUIST_FORM';
+
+export const TOGGLE_EDUIST_FORM_ACTIVE = 'TOGGLE_EDUIST_FORM_ACTIVE';
 
 export const addEduist = ({ name, birth, death, summary }) => {
   return {
@@ -20,10 +20,6 @@ export const removeEduist = (name) => {
   }
 };
 
-export const openEduistForm = () => {
-  return { type: OPEN_EDUIST_FORM };
-}
-
-export const closeEduistForm = () => {
-  return { type: CLOSE_EDUIST_FORM };
+export const toggleEduistFormActive = () => {
+  return { type: TOGGLE_EDUIST_FORM_ACTIVE };
 }

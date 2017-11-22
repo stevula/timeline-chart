@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Chart from '../../components/Chart';
-import { openEduistForm } from '../../actions';
+import { toggleEduistFormActive } from '../../actions';
 
 // return minYear and maxYear given the DOBs/DODs of eduists
 const getYearBounds = (eduists) => {
@@ -45,7 +45,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => dispatch(openEduistForm())
+    onClick: () => dispatch(toggleEduistFormActive())
   }
 }
 

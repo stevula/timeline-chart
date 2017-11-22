@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
-import { addEduist, closeEduistForm } from '../../actions';
+import { addEduist, toggleEduistFormActive } from '../../actions';
 import validateInputs from './validate-inputs';
 
 let EduistForm = ({ dispatch }) => {
@@ -36,14 +36,14 @@ let EduistForm = ({ dispatch }) => {
       height="50"
       width="375"
       y="25" >
-      <div className="form-container">
+      <div className="form-container" onClick={e => e.stopPropagation()}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
             if (!validateInputs(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
-            dispatch(closeEduistForm());
+            dispatch(toggleEduistFormActive());
             clearInputValues();
           }}
           xmlns="http://www.w3.org/1999/xhtml" >
@@ -90,7 +90,7 @@ let EduistForm = ({ dispatch }) => {
           e.preventDefault();
           e.stopPropagation();
           clearInputValues();
-          dispatch(closeEduistForm());
+          dispatch(toggleEduistFormActive());
         }}>
         ✕
         </button>

@@ -12,6 +12,7 @@
 }
 
 .EduistForm .form-container {
+  align-items: center;
   background-color: rgb(29, 169, 224);
   border-radius: 3px;
   display: flex;
