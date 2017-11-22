@@ -2,31 +2,30 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import { addEduist, closeEduistForm } from '../../actions';
+import areInputsValid from './validation-helpers';
 
-// TODO validate death year is greater than birth year
 let EduistForm = ({ dispatch }) => {
   const inputs = {
-    // name: undefined,
-    // birth: undefined,
-    // death: undefined,
-    // summary: undefined
+    /**
+    name: element,
+    birth: element,
+    death: element,
+    summary: element,
+    **/
   };
 
   const currentYear = new Date().getFullYear();
-  const isBlank = el => !el.value.trim();
   const mapRef = (inputName) => {
     return (el => { inputs[inputName] = el; });
   };
-  const mapInputsToInputValues = (origObj) => {
-    return Object.entries(origObj).reduce((mappedObj, [key, element]) => {
-      let value = element.value;
-      if (element.type === 'number') {
-        value = parseInt(element.value, 10);
-      }
-      mappedObj[key] = value;
-      return mappedObj;
-    }, {});
-  }
+  const mapInputsToInputValues = () => {
+    return {
+      name: inputs.name.value,
+      birth: parseInt(inputs.birth.value, 10),
+      death: parseInt(inputs.death.value, 10) || -1,
+      summary: inputs.summary.value || ''
+    };
+  };
   const clearInputValues = () => {
     Object.values(inputs).forEach(element => { element.value = ''; });
   };
@@ -42,7 +41,7 @@ let EduistForm = ({ dispatch }) => {
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (Object.values(inputs).some(isBlank)) return;
+            if (!areInputsValid(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
             dispatch(closeEduistForm());
             clearInputValues();
@@ -55,7 +54,7 @@ let EduistForm = ({ dispatch }) => {
             name="eduist_name"
             placeholder="Name"
             ref={mapRef('name')}
-
+            required
             type="text" />
           <div>:</div>
           <input
@@ -63,9 +62,9 @@ let EduistForm = ({ dispatch }) => {
             max={currentYear}
             min="0"
             name="eduist_birthyear"
-            placeholder="1900"
+            placeholder="YYYY"
             ref={mapRef('birth')}
-
+            required
             type="number" />
           <div>—</div>
           <input
@@ -73,7 +72,7 @@ let EduistForm = ({ dispatch }) => {
             max={currentYear}
             min="-1"
             name="eduist_deathyear"
-            placeholder="2017"
+            placeholder="YYYY"
             ref={mapRef('death')}
             type="number" />
           <textarea
