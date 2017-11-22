@@ -23,8 +23,8 @@ const Row = ({
             height={height * .85}
             name={eduist.name}
             summary={eduist.summary}
-            width={(endYear - eduist.birth) * scale}
-            translateX={(eduist.birth - startYear) * scale} />;
+            translateX={(eduist.birth - startYear) * scale}
+            width={(endYear - eduist.birth) * scale} />;
         })
       }
     </g>

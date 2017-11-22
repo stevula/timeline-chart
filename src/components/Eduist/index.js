@@ -15,7 +15,7 @@ const Eduist = ({
   const fontSize = 10;
 
   const endYear = dod === -1 ? '' : dod;
-  const timelineText = `${name}: ${dob} — ${endYear}`
+  const timelineText = `${name}: ${dob} — ${endYear}`;
 
   return (
     <g transform={`translate(${translateX}, 0)`} >
@@ -35,11 +35,11 @@ const Eduist = ({
       </text>
 
       <text
-        style={{ cursor: 'pointer' }}
+        aria-label="Remove"
         fontSize={fontSize}
         onClick={() => onClickRemove(name)}
-        aria-label="Remove"
         role="button"
+        style={{ cursor: 'pointer' }}
         x={width - fontSize * 2}
         y={height * 2/3}>
         ✕
