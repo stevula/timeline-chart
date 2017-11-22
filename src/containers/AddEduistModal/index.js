@@ -60,7 +60,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
             max={currentYear}
             min="0"
             name="eduist_birthyear"
-            placeholder="Birth Year"
+            placeholder="YYYY"
             ref={mapRef('birth')}
             required
             type="number" />
@@ -70,7 +70,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
             max={currentYear}
             min="-1"
             name="eduist_deathyear"
-            placeholder="Death Year"
+            placeholder="YYYY"
             ref={mapRef('death')}
             type="number" />
           <textarea
@@ -86,6 +86,7 @@ let AddEduistModal = ({ dispatch, isOpen }) => {
 
         <button onClick={(e) => {
           e.preventDefault();
+          e.stopPropagation();
           clearInputValues();
           dispatch(toggleModalOpen());
         }}>

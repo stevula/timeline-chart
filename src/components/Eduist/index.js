@@ -37,9 +37,13 @@ const Eduist = ({
       </text>
 
       <text
+        className="button"
         aria-label="Remove"
         fontSize={fontSize}
-        onClick={() => onClickRemove(name)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClickRemove(name)
+        }}
         role="button"
         style={{ cursor: 'pointer' }}
         x={width - fontSize * 2}
