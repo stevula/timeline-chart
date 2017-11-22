@@ -1,9 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addEduist } from '../../actions';
+import { addEduist, closeEduistForm } from '../../actions';
 
 let EduistForm = ({ dispatch }) => {
-  let name, dob, dod, summary;
+  const inputs = {
+    // name: undefined,
+    // dob: undefined,
+    // dod: undefined,
+    // summary: undefined
+  };
+
+  const isBlank = el => !el.value.trim();
+  const mapRef = (inputName) => {
+    return (el => inputs[inputName] = el);
+  };
+  const mapInputsToInputValues = (origObj) => {
+    return Object.entries(origObj).reduce((mappedObj, [key, element]) => {
+      mappedObj[key] = element.value;
+      return mappedObj;
+    }, {});
+  }
+  const clearInputValues = () => {
+    Object.values(inputs).forEach(element => { element.value = ''; });
+  };
 
   return (
     <foreignObject
@@ -13,25 +32,24 @@ let EduistForm = ({ dispatch }) => {
         height="50"
         onSubmit={(e) => {
           e.preventDefault();
-          if ([name, dob, dod, summary].some(isBlank)) return;
-          dispatch(addEduist({ name, dob, dod, summary }));
-          [name, dob, dod, summary].forEach(el => { el.value = '' });
+          if (Object.values(inputs).some(isBlank)) return;
+          dispatch(addEduist(mapInputsToInputValues(inputs)));
+          dispatch(closeEduistForm());
+          clearInputValues();
         }}
         width="100"
         xmlns="http://www.w3.org/1999/xhtml" >
 
-        <input type="text" ref={el => { name = el; }} />
-        <input type="date" ref={el => { dob = el; }} />
-        <input type="date" ref={el => { dod = el; }} />
-        <input type="textarea" ref={el => { summary = el; }} />
+        <input type="text" ref={mapRef('name')} />
+        <input type="date" ref={mapRef('dob')} />
+        <input type="date" ref={mapRef('dod')} />
+        <input type="textarea" ref={mapRef('summary')} />
 
         <button type="submit">Add</button>
       </form>
     </foreignObject>
   );
 };
-
-function isBlank(el) { return !el.val.trim }
 
 EduistForm = connect()(EduistForm);
 
