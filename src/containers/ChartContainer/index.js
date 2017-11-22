@@ -5,6 +5,7 @@ import { openEduistForm } from '../../actions';
 // return minYear and maxYear given the DOBs/DODs of eduists
 const getYearBounds = (eduists) => {
   const defaultBounds = { minYear: new Date().getFullYear(), maxYear: 0 };
+
   return eduists.reduce((bounds, eduist) => {
     const minYear = eduist.birth < bounds.minYear ? eduist.birth : bounds.minYear;
     let maxYear = bounds.maxYear;

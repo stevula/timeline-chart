@@ -35,62 +35,67 @@ let EduistForm = ({ dispatch }) => {
     <foreignObject
       className="EduistForm"
       height="50"
-      width="300"
+      width="375"
       y="25" >
-      <form
-        height="50"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (Object.values(inputs).some(isBlank)) return;
-          dispatch(addEduist(mapInputsToInputValues(inputs)));
-          dispatch(closeEduistForm());
-          clearInputValues();
-        }}
-        width="100"
-        xmlns="http://www.w3.org/1999/xhtml" >
+      <div className="form-container">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (Object.values(inputs).some(isBlank)) return;
+            dispatch(addEduist(mapInputsToInputValues(inputs)));
+            dispatch(closeEduistForm());
+            clearInputValues();
+          }}
+          xmlns="http://www.w3.org/1999/xhtml" >
 
-        <div className="left">
           <input
             aria-label="name"
             minLength="1"
             name="eduist_name"
-            placeholder="name"
+            placeholder="Name"
             ref={mapRef('name')}
-            required
+
             type="text" />
-          :
-        </div>
-        <div className="right">
+          <div>:</div>
           <input
             aria-label="year of birth"
             max={currentYear}
             min="0"
             name="eduist_birthyear"
-            placeholder="birth"
+            placeholder="1900"
             ref={mapRef('birth')}
-            required
+
             type="number" />
-          —
+          <div>—</div>
           <input
             aria-label="year of death"
             max={currentYear}
             min="-1"
             name="eduist_deathyear"
-            placeholder="death"
+            placeholder="2017"
             ref={mapRef('death')}
             type="number" />
-        </div>
+          <textarea
+            aria-label="summary"
+            minLength="8"
+            name="eduist_summary"
+            placeholder="Summary"
+            ref={mapRef('summary')}
+             />
 
-        <textarea
-          aria-label="summary"
-          minLength="8"
-          name="eduist_summary"
-          placeholder="summary"
-          ref={mapRef('summary')}
-          required />
+          <button type="submit">Add</button>
+        </form>
 
-        <button type="submit">Add</button>
-      </form>
+        <button onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          clearInputValues();
+          dispatch(closeEduistForm());
+        }}>
+        ✕
+        </button>
+      </div>
     </foreignObject>
   );
 };
