@@ -3,15 +3,13 @@ export const REMOVE_EDUIST = 'REMOVE_EDUIST';
 export const OPEN_EDUIST_FORM = 'OPEN_EDUIST_FORM';
 export const CLOSE_EDUIST_FORM = 'CLOSE_EDUIST_FORM';
 
-export const addEduist = ({ name, dob, dod, summary }) => {
+export const addEduist = ({ name, birth, death, summary }) => {
   return {
     type: ADD_EDUIST,
     name,
-    details: {
-      dob,
-      dod,
-      summary
-    }
+    birth,
+    death,
+    summary
   }
 };
 

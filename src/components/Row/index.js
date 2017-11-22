@@ -18,8 +18,8 @@ const Row = ({
 
           return <EduistContainer
             key={eduist.name}
-            dob={eduist.birth}
-            dod={eduist.death}
+            birth={eduist.birth}
+            death={eduist.death}
             height={height * .85}
             name={eduist.name}
             summary={eduist.summary}

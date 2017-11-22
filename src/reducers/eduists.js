@@ -7,7 +7,9 @@ const eduists = (state = [], action) => {
         ...state,
         {
           name: action.name,
-          details: action.details
+          birth: action.birth,
+          death: action.death,
+          summary: action.summary,
         }
       ];
     case REMOVE_EDUIST:

@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Eduist = ({
-  dob,
-  dod,
+  birth,
+  death,
   height,
   name,
   onClickRemove,
+  summary,
   translateX,
   width,
 }) => {
@@ -14,8 +15,8 @@ const Eduist = ({
   const cornerRadius = '3';
   const fontSize = 10;
 
-  const endYear = dod === -1 ? '' : dod;
-  const timelineText = `${name}: ${dob} — ${endYear}`;
+  const endYear = death === -1 ? '' : death;
+  const timelineText = `${name}: ${birth} — ${endYear}`;
 
   return (
     <g transform={`translate(${translateX}, 0)`} >
@@ -49,11 +50,12 @@ const Eduist = ({
 };
 
 Eduist.propTypes = {
-  dob: PropTypes.number.isRequired,
-  dod: PropTypes.number.isRequired,
+  birth: PropTypes.number.isRequired,
+  death: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   onClickRemove: PropTypes.func.isRequired,
+  summary: PropTypes.string.isRequired,
   translateX: PropTypes.number.isRequired,
   width: PropTypes.number.isRequired,
 };

@@ -5,18 +5,23 @@ import { addEduist, closeEduistForm } from '../../actions';
 let EduistForm = ({ dispatch }) => {
   const inputs = {
     // name: undefined,
-    // dob: undefined,
-    // dod: undefined,
+    // birth: undefined,
+    // death: undefined,
     // summary: undefined
   };
 
+  const currentYear = new Date().getFullYear();
   const isBlank = el => !el.value.trim();
   const mapRef = (inputName) => {
-    return (el => inputs[inputName] = el);
+    return (el => { inputs[inputName] = el; });
   };
   const mapInputsToInputValues = (origObj) => {
     return Object.entries(origObj).reduce((mappedObj, [key, element]) => {
-      mappedObj[key] = element.value;
+      let value = element.value;
+      if (element.type === 'number') {
+        value = parseInt(element.value, 10);
+      }
+      mappedObj[key] = value;
       return mappedObj;
     }, {});
   }
@@ -40,10 +45,28 @@ let EduistForm = ({ dispatch }) => {
         width="100"
         xmlns="http://www.w3.org/1999/xhtml" >
 
-        <input type="text" ref={mapRef('name')} />
-        <input type="date" ref={mapRef('dob')} />
-        <input type="date" ref={mapRef('dod')} />
-        <input type="textarea" ref={mapRef('summary')} />
+        <input
+          minLength="1"
+          placeholder="name"
+          ref={mapRef('name')}
+          type="text" />
+        <input
+          max={currentYear}
+          min="0"
+          placeholder="birth year"
+          ref={mapRef('birth')}
+          type="number" />
+        <input
+          max={currentYear}
+          min="-1"
+          placeholder="death year"
+          ref={mapRef('death')}
+          type="number" />
+        <input
+          minLength="8"
+          placeholder="summary"
+          ref={mapRef('summary')}
+          type="textarea" />
 
         <button type="submit">Add</button>
       </form>
