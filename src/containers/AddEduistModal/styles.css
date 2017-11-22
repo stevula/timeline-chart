@@ -1,0 +1,78 @@
+.AddEduistModal button {
+  background-color: transparent;
+  color: black;
+}
+
+.AddEduistModal button:hover {
+  cursor: pointer;
+}
+
+.AddEduistModal div {
+  min-width: 10%;
+}
+
+.AddEduistModal .form-container {
+  align-items: center;
+  background-color: rgb(29, 169, 224);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  height: 2em;
+  left: 20%;
+  position: absolute;
+  top: 20%;
+  width: 50em;
+}
+
+.AddEduistModal .form-container,
+.AddEduistModal button:active,
+.AddEduistModal button:focus,
+.AddEduistModal button:hover,
+.AddEduistModal input,
+.AddEduistModal textarea {
+  color: white;
+}
+
+.AddEduistModal .form-container,
+.AddEduistModal input,
+.AddEduistModal textarea,
+.AddEduistModal button {
+  font-size: 10px;
+}
+
+.AddEduistModal button,
+.AddEduistModal input,
+.AddEduistModal textarea {
+  background-color: transparent;
+  border: 0;
+  height: 1em;
+  min-width: 10%;
+}
+
+.AddEduistModal form {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+.AddEduistModal form,
+.AddEduistModal input {
+  text-align: center;
+}
+
+.AddEduistModal textarea {
+  text-align: left;
+}
+
+.AddEduistModal input:focus,
+.AddEduistModal textarea:focus {
+  outline: 0;
+}
+
+.AddEduistModal ::placeholder {
+  color: white;
+  opacity: .85;
+  text-align: center;
+}

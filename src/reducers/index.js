@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import eduists from './eduists';
-import isFormActive from './isFormActive';
+import isModalOpen from './isModalOpen';
 
 const app = combineReducers({
   eduists,
-  isFormActive
+  isModalOpen
 });
 
 export default app;

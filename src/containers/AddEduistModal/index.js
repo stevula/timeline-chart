@@ -1,10 +1,11 @@
 import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
-import { addEduist, toggleEduistFormActive } from '../../actions';
+import Modal from 'react-modal';
+import { addEduist, toggleModalOpen } from '../../actions';
 import validateInputs from './validate-inputs';
 
-let EduistForm = ({ dispatch }) => {
+let AddEduistModal = ({ dispatch, isOpen }) => {
   const inputs = {
     /**
     name: element,
@@ -31,22 +32,19 @@ let EduistForm = ({ dispatch }) => {
   };
 
   return (
-    <foreignObject
-      className="EduistForm"
-      height="50"
-      width="375"
-      y="25" >
-      <div className="form-container" onClick={e => e.stopPropagation()}>
+    <Modal isOpen={isOpen} className="AddEduistModal">
+      <div
+        className="form-container"
+        onClick={e => e.stopPropagation() /* prevent svg click event */}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
             if (!validateInputs(inputs)) return;
             dispatch(addEduist(mapInputsToInputValues(inputs)));
-            dispatch(toggleEduistFormActive());
+            dispatch(toggleModalOpen());
             clearInputValues();
-          }}
-          xmlns="http://www.w3.org/1999/xhtml" >
+          }}>
 
           <input
             aria-label="name"
@@ -62,7 +60,7 @@ let EduistForm = ({ dispatch }) => {
             max={currentYear}
             min="0"
             name="eduist_birthyear"
-            placeholder="YYYY"
+            placeholder="Birth Year"
             ref={mapRef('birth')}
             required
             type="number" />
@@ -72,7 +70,7 @@ let EduistForm = ({ dispatch }) => {
             max={currentYear}
             min="-1"
             name="eduist_deathyear"
-            placeholder="YYYY"
+            placeholder="Death Year"
             ref={mapRef('death')}
             type="number" />
           <textarea
@@ -88,17 +86,16 @@ let EduistForm = ({ dispatch }) => {
 
         <button onClick={(e) => {
           e.preventDefault();
-          e.stopPropagation();
           clearInputValues();
-          dispatch(toggleEduistFormActive());
+          dispatch(toggleModalOpen());
         }}>
         ✕
         </button>
       </div>
-    </foreignObject>
+    </Modal>
   );
 };
 
-EduistForm = connect()(EduistForm);
+AddEduistModal = connect()(AddEduistModal);
 
-export default EduistForm;
+export default AddEduistModal;
