@@ -5,10 +5,13 @@ const eduists = (state = [], action) => {
     case ADD_EDUIST:
       return [
         ...state,
-        { details: action.details }
+        {
+          name: action.name,
+          details: action.details
+        }
       ];
     case REMOVE_EDUIST:
-      return state.filter(eduist => eduist.name !== action.id);
+      return state.filter(eduist => eduist.name !== action.name);
     default:
       return state;
   }

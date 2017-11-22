@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Eduist from '../../components/Eduist';
+import { removeEduist } from '../../actions';
 
-class EduistContainer extends Component {
-  render() {
-    return <Eduist
-        dob={this.props.dob}
-        dod={this.props.dod}
-        height={this.props.height}
-        name={this.props.name}
-        handleClick={this.props.handleClick}
-        width={this.props.width}
-        translateX={this.props.translateX} />;
-  }
+const mapStateToProps = state => state;
 
-  renderSummary() {
-    // this.props.summary
-  }
-}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClickRemove: () => dispatch(removeEduist(ownProps.name))
+  };
+};
+
+const EduistContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Eduist);
 
 export default EduistContainer;

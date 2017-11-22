@@ -4,9 +4,8 @@ export const REMOVE_EDUIST = 'REMOVE_EDUIST';
 export const addEduist = ({ name, dob, dod, summary }) => {
   return {
     type: ADD_EDUIST,
-    id: name,
+    name,
     details: {
-      name,
       dob,
       dod,
       summary
@@ -14,9 +13,9 @@ export const addEduist = ({ name, dob, dod, summary }) => {
   }
 };
 
-export const removeEduist = ({ id }) => {
+export const removeEduist = (name) => {
   return {
     type: REMOVE_EDUIST,
-    id,
+    name,
   }
 };
