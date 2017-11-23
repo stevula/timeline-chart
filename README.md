@@ -21,12 +21,6 @@ npm install
 npm start
 ```
 
-## Running Tests
-
-```
-npm test
-```
-
 ## Features
 #### Basic Features
 - Overlapping dates render on separate lanes.
@@ -38,4 +32,5 @@ npm test
 #### Extra Features
 - Shows summary of person’s contributions on event mouseover (this does not yet work for added events).
 - Data is persisted via localStorage.
+- Deployed on Heroku.
 
