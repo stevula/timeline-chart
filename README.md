@@ -26,11 +26,11 @@ npm start
 - Overlapping dates render on separate lanes.
 - Makes efficient use of the lanes.
 - Add events by clicking anywhere on the chart.
-- Remove events by clicking 'x' on the event.
-- Record a (virtually) unlimited number of events thanks to performant SVG graphics.
+- Remove events by clicking "x" on the event.
+- Record a (virtually) unlimited number of events.
 
 #### Extra Features
-- Shows summary of person’s contributions on event mouseover (this does not yet work for added events).
+- Shows summary of person’s contributions on event mouseover.
 - Data is persisted via localStorage.
-- Deployed on Heroku.
+- Deployed on [Heroku](https://altschool-timeline-si57r2gu.herokuapp.com/).
 
