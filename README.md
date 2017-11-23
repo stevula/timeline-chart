@@ -29,7 +29,7 @@ npm start
 - Record a virtually unlimited number of events.
 - Add events as far back as 0 CE.
 - Shows summary of person’s contributions on event mouseover.
-- Data is persisted via localStorage.
+- Data is persisted in localStorage.
 - Deployed on [Heroku](https://altschool-timeline-si57r2gu.herokuapp.com/).
 
 ## Design Choices
