@@ -58,3 +58,4 @@ I was not able to implement all of this functionality within the time I allotted
 - Tooltips don't display for added events.
 - Elements may overflow/overlap for particularly short events.
 - Not responsive; scrolling may be required to see full chart.
+- Limited error handling.
