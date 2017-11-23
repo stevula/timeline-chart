@@ -4,7 +4,7 @@ import Row from '../Row';
 import ModalForm from '../../containers/ModalForm';
 
 const Chart = ({ rows, minYear, maxYear, onClick, isFormModalOpen }) => {
-  const width = 1200;
+  const width = 1000;
   const rowHeight = 25;
 
   return (
