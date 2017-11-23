@@ -1,14 +1,24 @@
 import React from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 const Summary = ({ isOpen, text = 'No summary.' }) => {
+  const modalStyle = {
+    content: {
+      height: '25%',
+      width: '35%',
+    }
+  };
+
   return (
-    <Modal isOpen={isOpen}>
-      <div className="Summary">
-        {text}
-      </div>
-    </Modal>
+    <div className="EduistSummary">
+      <Modal isOpen={isOpen} style={modalStyle}>
+        <div>
+          {text}
+        </div>
+      </Modal>
+    </div>
   );
 }
 
