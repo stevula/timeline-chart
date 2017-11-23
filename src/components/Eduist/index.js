@@ -26,9 +26,7 @@ const Eduist = ({
   return (
     <g
       className="Eduist"
-      transform={`translate(${translateX}, 0)`}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave} >
+      transform={`translate(${translateX}, 0)`} >
       <rect
         fill={blue}
         height={height}
@@ -39,6 +37,8 @@ const Eduist = ({
       <text
         fill="white"
         fontSize={fontSize}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         y={height * 2/3}
         x={fontSize} >
         {timelineText}
