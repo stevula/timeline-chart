@@ -22,14 +22,12 @@ npm start
 ```
 
 ## Features
-#### Basic Features
 - Overlapping dates render on separate lanes.
 - Makes efficient use of the lanes.
-- Add events by clicking anywhere on the chart.
+- Add events by clicking any blank area on the chart.
 - Remove events by clicking "x" on the event.
-- Record a (virtually) unlimited number of events.
-
-#### Extra Features
+- Record a virtually unlimited number of events.
+- Add events as far back as 0 CE.
 - Shows summary of person’s contributions on event mouseover.
 - Data is persisted via localStorage.
 - Deployed on [Heroku](https://altschool-timeline-si57r2gu.herokuapp.com/).
