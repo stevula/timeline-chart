@@ -3,7 +3,7 @@ import './styles.css';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import { addEduist, toggleFormModal } from '../../actions';
-import validateInputs from './validate-inputs';
+import validateInputs from './validateInputs';
 
 let ModalForm = ({ dispatch, isOpen }) => {
   const inputs = {
