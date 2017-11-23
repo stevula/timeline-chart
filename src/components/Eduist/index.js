@@ -12,8 +12,8 @@ const Eduist = ({
   translateX,
   width,
 }) => {
-  const blue = 'rgb(29, 169, 224)';
-  const cornerRadius = '3';
+  // NOTE: leaving this in the js because it's used to calculate other props
+  // could possibly handle in stylesheet if using Sass
   const fontSize = 10;
 
   const endYear = death === -1 ? '' : death;
@@ -26,16 +26,10 @@ const Eduist = ({
       onClick={e => e.stopPropagation()}
       transform={`translate(${translateX}, 0)`} >
 
-      <rect
-        fill={blue}
-        height={height}
-        rx={cornerRadius}
-        ry={cornerRadius}
-        width={width}>
+      <rect height={height} width={width} >
       </rect>
 
       <text
-        fill="white"
         fontSize={fontSize}
         y={height * 2/3}
         x={fontSize} >
