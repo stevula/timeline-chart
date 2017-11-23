@@ -34,3 +34,6 @@ npm start
 - Data is persisted via localStorage.
 - Deployed on [Heroku](https://altschool-timeline-si57r2gu.herokuapp.com/).
 
+#### Known Issues
+- Duplicate names may cause issues with React (names used as ids).
+- Tooltips don't work for added events.
