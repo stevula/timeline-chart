@@ -52,7 +52,7 @@ const Eduist = ({
         }}
         role="button"
         style={{ cursor: 'pointer' }}
-        x={width - fontSize * 2}
+        x={width - fontSize * 1.5}
         y={height * 2/3}>
         ✕
       </text>
