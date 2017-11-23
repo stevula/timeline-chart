@@ -23,6 +23,7 @@ const Eduist = ({
     <g
       className="Eduist"
       data-tip={summary /* used by react-tooltip */ }
+      onClick={e => e.stopPropagation()}
       transform={`translate(${translateX}, 0)`} >
 
       <rect
