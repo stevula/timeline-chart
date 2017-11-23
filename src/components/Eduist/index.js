@@ -1,16 +1,12 @@
 import React from 'react';
 import './styles.css';
 import PropTypes from 'prop-types';
-import Summary from '../../components/Summary';
 
 const Eduist = ({
   birth,
   death,
   height,
-  isSummaryOpen,
   name,
-  onMouseEnter,
-  onMouseLeave,
   onClickRemove,
   summary,
   translateX,
@@ -26,19 +22,20 @@ const Eduist = ({
   return (
     <g
       className="Eduist"
+      data-tip={summary /* used by react-tooltip */ }
       transform={`translate(${translateX}, 0)`} >
+
       <rect
         fill={blue}
         height={height}
         rx={cornerRadius}
         ry={cornerRadius}
-        width={width} />
+        width={width}>
+      </rect>
 
       <text
         fill="white"
         fontSize={fontSize}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
         y={height * 2/3}
         x={fontSize} >
         {timelineText}
@@ -58,8 +55,6 @@ const Eduist = ({
         y={height * 2/3}>
         ✕
       </text>
-
-      <Summary isOpen={isSummaryOpen} text={summary} />
     </g>
   );
 };
@@ -68,10 +63,7 @@ Eduist.propTypes = {
   birth: PropTypes.number.isRequired,
   death: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  isSummaryOpen: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
   onClickRemove: PropTypes.func.isRequired,
   summary: PropTypes.string.isRequired,
   translateX: PropTypes.number.isRequired,

@@ -4,3 +4,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.ReactTooltip {
+  max-width: 30% !important;
+}
