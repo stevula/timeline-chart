@@ -9,6 +9,8 @@ const Eduist = ({
   height,
   isSummaryOpen,
   name,
+  onMouseEnter,
+  onMouseLeave,
   onClickRemove,
   summary,
   translateX,
@@ -22,7 +24,11 @@ const Eduist = ({
   const timelineText = `${name}: ${birth} — ${endYear}`;
 
   return (
-    <g className="Eduist" transform={`translate(${translateX}, 0)`} >
+    <g
+      className="Eduist"
+      transform={`translate(${translateX}, 0)`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave} >
       <rect
         fill={blue}
         height={height}
@@ -53,7 +59,7 @@ const Eduist = ({
         ✕
       </text>
 
-      <Summary isOpen={isSummaryOpen} />
+      <Summary isOpen={isSummaryOpen} text={summary} />
     </g>
   );
 };
@@ -62,8 +68,10 @@ Eduist.propTypes = {
   birth: PropTypes.number.isRequired,
   death: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  isSummaryOpen: PropTypes.bool.isRequired,
+  isSummaryOpen: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired,
   onClickRemove: PropTypes.func.isRequired,
   summary: PropTypes.string.isRequired,
   translateX: PropTypes.number.isRequired,

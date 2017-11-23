@@ -21,6 +21,7 @@ const Row = ({
             birth={eduist.birth}
             death={eduist.death}
             height={height * .85}
+            isSummaryOpen={eduist.isSummaryOpen}
             name={eduist.name}
             summary={eduist.summary}
             translateX={(eduist.birth - startYear) * scale}
