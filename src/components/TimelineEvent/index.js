@@ -21,7 +21,7 @@ const TimelineEvent = ({
     <g
       className="TimelineEvent"
       data-tip={summary /* used by react-tooltip */ }
-      onClick={e => e.stopPropagation()}
+      onClick={e => e.stopPropagation()  /* prevent Chart click event */}
       transform={`translate(${translateX}, 0)`} >
 
       <rect height={height} width={width} ></rect>
@@ -34,13 +34,10 @@ const TimelineEvent = ({
       </text>
 
       <text
-        className="button"
         aria-label="Remove"
+        className="button"
         fontSize={fontSize}
-        onClick={(e) => {
-          e.stopPropagation();
-          onClickRemove(name)
-        }}
+        onClick={() => onClickRemove(name)}
         role="button"
         style={{ cursor: 'pointer' }}
         x={width - fontSize * 1.5}

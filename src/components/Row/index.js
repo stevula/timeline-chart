@@ -4,10 +4,10 @@ import TimelineEventContainer from '../../containers/TimelineEventContainer';
 
 // a row of non-overlapping timeline events
 const Row = ({
-  timelineEvents,
   height,
   scale,
   startYear,
+  timelineEvents,
   translateY
 }) => {
   return (
@@ -22,7 +22,6 @@ const Row = ({
             birth={timelineEvent.birth}
             death={timelineEvent.death}
             height={height * .85}
-            isSummaryOpen={timelineEvent.isSummaryOpen}
             name={timelineEvent.name}
             summary={timelineEvent.summary}
             translateX={(timelineEvent.birth - startYear) * scale}
@@ -34,10 +33,10 @@ const Row = ({
 };
 
 Row.propTypes = {
-  timelineEvents: PropTypes.array.isRequired,
   height: PropTypes.number.isRequired,
   scale: PropTypes.number.isRequired,
   startYear: PropTypes.number.isRequired,
+  timelineEvents: PropTypes.array.isRequired,
   translateY: PropTypes.number.isRequired,
 };
 

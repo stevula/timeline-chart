@@ -20,7 +20,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
   const mapRef = (inputName) => {
     return (el => { inputs[inputName] = el; });
   };
-  const mapInputsToInputValues = () => {
+  const getInputValues = () => {
     return {
       name: inputs.name.value,
       birth: parseInt(inputs.birth.value, 10),
@@ -28,23 +28,18 @@ let ModalForm = ({ dispatch, isOpen }) => {
       summary: inputs.summary.value || ''
     };
   };
-  const clearInputValues = () => {
-    Object.values(inputs).forEach(element => { element.value = ''; });
-  };
 
   return (
     <Modal isOpen={isOpen} className="ModalForm">
       <div
         className="form-container"
-        onClick={e => e.stopPropagation() /* prevent svg click event */}>
+        onClick={e => e.stopPropagation() /* prevent Chart click event */}>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            e.stopPropagation();
             if (!validateInputs(inputs)) return;
-            dispatch(addTimelineEvent(mapInputsToInputValues(inputs)));
+            dispatch(addTimelineEvent(getInputValues()));
             dispatch(toggleFormModal());
-            clearInputValues();
           }}>
 
           <input
@@ -87,8 +82,6 @@ let ModalForm = ({ dispatch, isOpen }) => {
 
         <button onClick={(e) => {
           e.preventDefault();
-          e.stopPropagation();
-          clearInputValues();
           dispatch(toggleFormModal());
         }}>
         ✕
