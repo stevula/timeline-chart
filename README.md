@@ -39,7 +39,7 @@ I determined that Canvas' [immediate-mode](https://msdn.microsoft.com/en-us/libr
 
 SVG and divs have similar performance characteristics to each other, but SVG is specialized for graphical representation so it facilitates simpler positioning and drawing different shapes. Given these facts (and that I've been wanting to experiment with SVG) I decided to use SVG for the graph.
 
-Note: canvas would likely be more performant but would be impractical without the help of a drawing/graphing library.
+However, SVG presented some unexpected difficulties for this app. For example, it is not possible to put text inside of the `<rect>` elements used to represent events on the chart.  I had to superimpose `<text>` elements on top of them, which means the rectangles are not aware of the size of their contents.
 
 #### Styles
 I used plain CSS instead of a preprocessor, so as not to require a more complex build process. This system would obviously be difficult to manage if the app were to continue growing. Styles are basically scoped to their components and not very reusable.
@@ -50,12 +50,12 @@ I added the "remove event" button to the event itself, which seemed very intuiti
 
 To create a new event, ideally I wanted the user to be able to click on the timeline chart and drag to control the timespan of the new event. This would create the "add event" form which would look like a normal event but would accept values as user input. 
 
-I was not able to implement all of this functionality within the time I allotted for this project, so the form will just appear when you click in an empty area of the chart:
+I was not able to implement most of this functionality within the time I allotted for this project, so the form will just appear when you click in an empty area of the chart:
 !["add event" form](./readme_imgs/form.png)
 
-#### Known Issues
-- Duplicate names may cause issues with React (names are used as ids).
-- Tooltips don't display for added events.
-- Elements may overflow/overlap for particularly short events.
-- Not responsive; scrolling may be required to see full chart.
-- Limited error handling.
+#### TODO
+- Assign uuids to each education theorist record. Using names as ids will cause issues if there are duplicate names.
+- Bind tooltips for added events. 
+- Fix event element overlap/overflow issues (truncate?).
+- Responsiveness, scale chart to viewport.
+- Improve error handling.

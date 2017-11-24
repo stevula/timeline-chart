@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import eduists from './eduists';
+import timelineEvents from './timelineEvents';
 import isFormModalOpen from './isFormModalOpen';
 
 const app = combineReducers({
-  eduists,
+  timelineEvents,
   isFormModalOpen
 });
 

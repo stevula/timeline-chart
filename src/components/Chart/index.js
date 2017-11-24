@@ -4,6 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import Row from '../Row';
 import ModalForm from '../../containers/ModalForm';
 
+// chart that displays events on a timeline
 const Chart = ({ rows, minYear, maxYear, onClick, isFormModalOpen }) => {
   const width = 1200;
   const rowHeight = 25;
@@ -24,10 +25,10 @@ const Chart = ({ rows, minYear, maxYear, onClick, isFormModalOpen }) => {
         <ModalForm isOpen={isFormModalOpen} />
 
         {
-          rows.map((rowEduists, rowNumber) => {
+          rows.map((rowEvents, rowNumber) => {
             return <Row
               key={rowNumber}
-              eduists={rowEduists}
+              timelineEvents={rowEvents}
               height={rowHeight}
               scale={width / (maxYear - minYear)}
               startYear={minYear}

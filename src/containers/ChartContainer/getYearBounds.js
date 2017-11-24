@@ -1,14 +1,14 @@
-// return minYear and maxYear given the DOBs/DODs of eduists
-const getYearBounds = (eduists) => {
+// return timeline minYear and maxYear given the DOBs/DODs of timelineEvents
+const getYearBounds = (timelineEvents) => {
   const defaultBounds = { minYear: new Date().getFullYear(), maxYear: 0 };
 
-  return eduists.reduce((bounds, eduist) => {
-    const minYear = eduist.birth < bounds.minYear ? eduist.birth : bounds.minYear;
+  return timelineEvents.reduce((bounds, timelineEvent) => {
+    const minYear = timelineEvent.birth < bounds.minYear ? timelineEvent.birth : bounds.minYear;
     let maxYear = bounds.maxYear;
-    if (eduist.death === -1) {
+    if (timelineEvent.death === -1) {
       maxYear = new Date().getFullYear();
-    } else if (eduist.death > maxYear) {
-      maxYear = eduist.death;
+    } else if (timelineEvent.death > maxYear) {
+      maxYear = timelineEvent.death;
     }
     return { minYear, maxYear };
   }, defaultBounds);

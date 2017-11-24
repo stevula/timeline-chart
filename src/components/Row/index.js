@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EduistContainer from '../../containers/EduistContainer';
+import TimelineEventContainer from '../../containers/TimelineEventContainer';
 
+// a row of non-overlapping timeline events
 const Row = ({
-  eduists,
+  timelineEvents,
   height,
   scale,
   startYear,
@@ -12,20 +13,20 @@ const Row = ({
   return (
     <g transform={`translate(0, ${translateY + 5})`} >
       {
-        eduists.map((eduist) => {
-          const isAlive = eduist.death === -1;
-          const endYear = isAlive ? new Date().getFullYear() : eduist.death;
+        timelineEvents.map((timelineEvent) => {
+          const isAlive = timelineEvent.death === -1;
+          const endYear = isAlive ? new Date().getFullYear() : timelineEvent.death;
 
-          return <EduistContainer
-            key={eduist.name}
-            birth={eduist.birth}
-            death={eduist.death}
+          return <TimelineEventContainer
+            key={timelineEvent.name}
+            birth={timelineEvent.birth}
+            death={timelineEvent.death}
             height={height * .85}
-            isSummaryOpen={eduist.isSummaryOpen}
-            name={eduist.name}
-            summary={eduist.summary}
-            translateX={(eduist.birth - startYear) * scale}
-            width={(endYear - eduist.birth) * scale} />;
+            isSummaryOpen={timelineEvent.isSummaryOpen}
+            name={timelineEvent.name}
+            summary={timelineEvent.summary}
+            translateX={(timelineEvent.birth - startYear) * scale}
+            width={(endYear - timelineEvent.birth) * scale} />;
         })
       }
     </g>
@@ -33,7 +34,7 @@ const Row = ({
 };
 
 Row.propTypes = {
-  eduists: PropTypes.array.isRequired,
+  timelineEvents: PropTypes.array.isRequired,
   height: PropTypes.number.isRequired,
   scale: PropTypes.number.isRequired,
   startYear: PropTypes.number.isRequired,

@@ -2,9 +2,10 @@ import React from 'react';
 import './styles.css';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
-import { addEduist, toggleFormModal } from '../../actions';
+import { addTimelineEvent, toggleFormModal } from '../../actions';
 import validateInputs from './validateInputs';
 
+// form for adding a timeline event. opens in a modal.
 let ModalForm = ({ dispatch, isOpen }) => {
   const inputs = {
     /**
@@ -41,7 +42,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
             e.preventDefault();
             e.stopPropagation();
             if (!validateInputs(inputs)) return;
-            dispatch(addEduist(mapInputsToInputValues(inputs)));
+            dispatch(addTimelineEvent(mapInputsToInputValues(inputs)));
             dispatch(toggleFormModal());
             clearInputValues();
           }}>
@@ -49,7 +50,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
           <input
             aria-label="name"
             minLength="1"
-            name="eduist_name"
+            name="timelineEvent_name"
             placeholder="Name"
             ref={mapRef('name')}
             required
@@ -59,7 +60,7 @@ let ModalForm = ({ dispatch, isOpen }) => {
             aria-label="year of birth"
             max={currentYear}
             min="0"
-            name="eduist_birthyear"
+            name="timelineEvent_birthyear"
             placeholder="YYYY"
             ref={mapRef('birth')}
             required
@@ -69,14 +70,14 @@ let ModalForm = ({ dispatch, isOpen }) => {
             aria-label="year of death"
             max={currentYear}
             min="-1"
-            name="eduist_deathyear"
+            name="timelineEvent_deathyear"
             placeholder="YYYY"
             ref={mapRef('death')}
             type="number" />
           <textarea
             aria-label="summary"
             minLength="8"
-            name="eduist_summary"
+            name="timelineEvent_summary"
             placeholder="Summary"
             ref={mapRef('summary')}
              />

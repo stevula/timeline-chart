@@ -1,23 +1,23 @@
-.Eduist {
+.TimelineEvent {
   font-size: 10px;
 }
 
-.Eduist rect {
+.TimelineEvent rect {
   fill: rgb(29, 169, 224);
   /* rect's version of border-radius */
   rx: 3px;
   ry: 3px;
 }
 
-.Eduist text:not(.button),
-.Eduist .button:hover {
+.TimelineEvent text:not(.button),
+.TimelineEvent .button:hover {
   fill: white;
 }
 
-.Eduist .button {
+.TimelineEvent .button {
   cursor: pointer;
 }
 
-.Eduist .button:hover {
+.TimelineEvent .button:hover {
   fill: white;
 }

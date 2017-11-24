@@ -7,10 +7,10 @@ import { createStore } from 'redux';
 import app from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import { loadState, saveState } from './localStorage';
-import eduists from './data/eduists.json';
+import timelineEvents from './data/events.json';
 
 const defaultState = {
-  eduists: eduists.data,
+  timelineEvents: timelineEvents.data,
   isFormModalOpen: false
 };
 

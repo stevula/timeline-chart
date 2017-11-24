@@ -1,10 +1,10 @@
-export const ADD_EDUIST = 'ADD_EDUIST';
-export const REMOVE_EDUIST = 'REMOVE_EDUIST';
+export const ADD_TIMELINE_EVENT = 'ADD_TIMELINE_EVENT';
+export const REMOVE_TIMELINE_EVENT = 'REMOVE_TIMELINE_EVENT';
 export const TOGGLE_FORM_MODAL = 'TOGGLE_FORM_MODAL';
 
-export const addEduist = ({ name, birth, death, summary }) => {
+export const addTimelineEvent = ({ name, birth, death, summary }) => {
   return {
-    type: ADD_EDUIST,
+    type: ADD_TIMELINE_EVENT,
     name,
     birth,
     death,
@@ -12,9 +12,9 @@ export const addEduist = ({ name, birth, death, summary }) => {
   };
 };
 
-export const removeEduist = (name) => {
+export const removeTimelineEvent = (name) => {
   return {
-    type: REMOVE_EDUIST,
+    type: REMOVE_TIMELINE_EVENT,
     name,
   };
 };

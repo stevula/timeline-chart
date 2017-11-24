@@ -1,8 +1,10 @@
 import React from 'react';
 import './styles.css';
 import PropTypes from 'prop-types';
+import formatEventText from './formatEventText';
 
-const Eduist = ({
+// a timeline event presenting info on individual's lifespan and accomplishments
+const TimelineEvent = ({
   birth,
   death,
   height,
@@ -12,28 +14,23 @@ const Eduist = ({
   translateX,
   width,
 }) => {
-  // NOTE: leaving this in the js because it's used to calculate other props
-  // could possibly handle in stylesheet if using Sass
+  // NOTE: fontSize not in css because it's used to calculate SVG attrs
   const fontSize = 10;
-
-  const endYear = death === -1 ? '' : death;
-  const timelineText = `${name}: ${birth} — ${endYear}`;
 
   return (
     <g
-      className="Eduist"
+      className="TimelineEvent"
       data-tip={summary /* used by react-tooltip */ }
       onClick={e => e.stopPropagation()}
       transform={`translate(${translateX}, 0)`} >
 
-      <rect height={height} width={width} >
-      </rect>
+      <rect height={height} width={width} ></rect>
 
       <text
         fontSize={fontSize}
         y={height * 2/3}
         x={fontSize} >
-        {timelineText}
+        {formatEventText(name, birth, death)}
       </text>
 
       <text
@@ -54,7 +51,7 @@ const Eduist = ({
   );
 };
 
-Eduist.propTypes = {
+TimelineEvent.propTypes = {
   birth: PropTypes.number.isRequired,
   death: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
@@ -65,4 +62,4 @@ Eduist.propTypes = {
   width: PropTypes.number.isRequired,
 };
 
-export default Eduist;
+export default TimelineEvent;

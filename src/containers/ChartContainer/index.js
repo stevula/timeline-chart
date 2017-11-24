@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import Chart from '../../components/Chart';
 import { toggleFormModal } from '../../actions';
-import getEduistRows from './getEduistRows';
+import getRows from './getRows';
 import getYearBounds from './getYearBounds';
 
 const mapStateToProps = (state) => {
   return {
     isFormModalOpen: state.isFormModalOpen,
-    rows: getEduistRows(state.eduists),
-    ...getYearBounds(state.eduists)
+    rows: getRows(state.timelineEvents),
+    ...getYearBounds(state.timelineEvents)
   };
 };
 
