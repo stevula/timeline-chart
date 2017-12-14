@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-# AltSchool Timeline Challenge 1.0.2
+# Timeline Chart
 
 ## Getting Started
 
@@ -30,7 +30,6 @@ npm start
 - Add events as far back as 0 CE.
 - Shows summary of person’s contributions on event mouseover.
 - Data is persisted in localStorage.
-- Deployed on [Heroku](https://altschool-timeline-si57r2gu.herokuapp.com/).
 
 ## Design Choices
 
